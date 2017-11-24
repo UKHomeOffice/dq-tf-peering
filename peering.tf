@@ -4,9 +4,6 @@
 
 /**
  * Intra AWS account VPC peering connections.
- *
- * Establishes a relationship resource between the "peeringvpc" and "prodvpc" VPC.
- * Establishes a relationship resource between the "peeringvpc" and "opsvpc" VPC.
  */
  resource "aws_vpc_peering_connection" "peeringvpc2prodvpc" {
    vpc_id = "${aws_vpc.peeringvpc.id}"
