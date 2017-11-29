@@ -18,27 +18,25 @@ data "aws_ami" "linux_connectivity_tester" {
   ]
 }
 
-
 resource "aws_instance" "BastionHostLinux" {
   ami                    = "${data.aws_ami.linux_connectivity_tester.id}"
   instance_type          = "${var.instance_type}"
-  subnet_id              = "${aws_subnet.PeeringSubnet.id}"
+  subnet_id              = "${aws_subnet.PeeringSubnet1.id}"
   vpc_security_group_ids = ["${aws_security_group.Bastions.id}"]
 
   tags {
     Name = "${local.name_prefix}ec2-linux"
   }
 
-  user_data = "${file("${path.module}/connectivitycheck.txt")}"
+  user_data = "CHECK_self=127.0.0.1:8080 CHECK_google=google.com:80 CHECK_googletls=google.com:443 LISTEN_http=0.0.0.0:80"
 }
 
 resource "aws_security_group" "Bastions" {
   vpc_id = "${aws_vpc.peeringvpc.id}"
 
   tags {
-    Name = "${local.name_prefix}-sg"
+    Name = "${local.name_prefix}sg"
   }
-}
 
   ingress {
     from_port   = 22
