@@ -21,7 +21,7 @@ data "aws_ami" "linux_connectivity_tester" {
 resource "aws_instance" "BastionHostLinux" {
   ami                    = "${data.aws_ami.linux_connectivity_tester.id}"
   instance_type          = "${var.instance_type}"
-  subnet_id              = "${aws_subnet.PeeringSubnet1.id}"
+  subnet_id              = "${aws_subnet.connectivity_tester_subnet.id}"
   vpc_security_group_ids = ["${aws_security_group.Bastions.id}"]
 
   tags {
@@ -39,8 +39,8 @@ resource "aws_security_group" "Bastions" {
   }
 
   ingress {
-    from_port   = 22
-    to_port     = 22
+    from_port   = 80
+    to_port     = 80
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }
