@@ -20,7 +20,7 @@ resource "aws_vpc" "peeringvpc" {
 resource "aws_subnet" "connectivity_tester_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
   cidr_block              = "${var.connectivity_tester_subnet_cidr_block}"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
   availability_zone       = "${var.az}"
 
   tags {
@@ -31,7 +31,7 @@ resource "aws_subnet" "connectivity_tester_subnet" {
 resource "aws_subnet" "haproxy_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
   cidr_block              = "${var.haproxy_subnet_cidr_block}"
-  map_public_ip_on_launch = true
+  map_public_ip_on_launch = false
   availability_zone       = "${var.az}"
 
   tags {
