@@ -21,11 +21,11 @@ class TestE2E(unittest.TestCase):
                 aws = "aws"
               }
 
-              cidr_block             = "10.3.0.0/16"
-              vpc_subnet1_cidr_block  = "10.3.0.0/24"
-              vpc_subnet2_cidr_block = "10.3.1.0/24"
-              az                     = "eu-west-2a"
-              name_prefix            = "dq-"
+              cidr_block                            = "10.3.0.0/16"
+              connectivity_tester_subnet_cidr_block = "10.3.0.0/24"
+              haproxy_subnet_cidr_block             = "10.3.1.0/24"
+              az                                    = "eu-west-2a"
+              name_prefix                           = "dq-"
             }
         """
         self.result = Runner(self.snippet).result
@@ -36,20 +36,17 @@ class TestE2E(unittest.TestCase):
     def test_vpc_cidr_block(self):
         self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["cidr_block"], "10.3.0.0/16")
 
-    def test_peering_subnet1_cidr_block(self):
-        self.assertEqual(self.result['peering']["aws_subnet.PeeringSubnet1"]["cidr_block"], "10.3.0.0/24")
+    def test_peering_connectivity_tester_subnet_cidr_block(self):
+        self.assertEqual(self.result['peering']["aws_subnet.connectivity_tester_subnet"]["cidr_block"], "10.3.0.0/24")
 
-    def test_peering_subnet2_cidr_block(self):
-        self.assertEqual(self.result['peering']["aws_subnet.PeeringSubnet2"]["cidr_block"], "10.3.1.0/24")
+    def test_peering_haproxy_subnet_cidr_block(self):
+        self.assertEqual(self.result['peering']["aws_subnet.haproxy_subnet"]["cidr_block"], "10.3.1.0/24")
 
-    def test_az_subnet1(self):
-        self.assertEqual(self.result['peering']["aws_subnet.PeeringSubnet1"]["availability_zone"], "eu-west-2a")
+    def test_az_connectivity_tester_subnet(self):
+        self.assertEqual(self.result['peering']["aws_subnet.connectivity_tester_subnet"]["availability_zone"], "eu-west-2a")
 
-    def test_az_subnet2(self):
-        self.assertEqual(self.result['peering']["aws_subnet.PeeringSubnet2"]["availability_zone"], "eu-west-2a")
-
-    def test_name_prefix_PeeringRouteToInternet(self):
-        self.assertEqual(self.result['peering']["aws_internet_gateway.PeeringRouteToInternet"]["tags.Name"], "dq-peering-igw")
+    def test_az_haproxy_subnet(self):
+        self.assertEqual(self.result['peering']["aws_subnet.haproxy_subnet"]["availability_zone"], "eu-west-2a")
 
     def test_name_prefix_peeringvpc(self):
         self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["tags.Name"], "dq-peering-vpc")

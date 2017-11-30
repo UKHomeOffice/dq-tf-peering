@@ -1,6 +1,6 @@
 variable "cidr_block" {}
-variable "vpc_subnet1_cidr_block" {}
-variable "vpc_subnet2_cidr_block" {}
+variable "connectivity_tester_subnet_cidr_block" {}
+variable "haproxy_subnet_cidr_block" {}
 variable "az" {}
 variable "name_prefix" {}
 
@@ -17,32 +17,24 @@ resource "aws_vpc" "peeringvpc" {
   }
 }
 
-resource "aws_internet_gateway" "PeeringRouteToInternet" {
-  vpc_id = "${aws_vpc.peeringvpc.id}"
-
-  tags {
-    Name = "${local.name_prefix}igw"
-  }
-}
-
-resource "aws_subnet" "PeeringSubnet1" {
+resource "aws_subnet" "connectivity_tester_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
-  cidr_block              = "${var.vpc_subnet1_cidr_block}"
+  cidr_block              = "${var.connectivity_tester_subnet_cidr_block}"
   map_public_ip_on_launch = true
   availability_zone       = "${var.az}"
 
   tags {
-    Name = "${local.name_prefix}subnet1"
+    Name = "${local.name_prefix}connectivity-tester-subnet"
   }
 }
 
-resource "aws_subnet" "PeeringSubnet2" {
+resource "aws_subnet" "haproxy_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
-  cidr_block              = "${var.vpc_subnet2_cidr_block}"
+  cidr_block              = "${var.haproxy_subnet_cidr_block}"
   map_public_ip_on_launch = true
   availability_zone       = "${var.az}"
 
   tags {
-    Name = "${local.name_prefix}subnet2"
+    Name = "${local.name_prefix}haproxy-subnet"
   }
 }
