@@ -16,3 +16,19 @@ variable "dgdb_apps_cidr_block" {}
 variable "mdm_apps_cidr_block" {}
 variable "int_dashboard_cidr_block" {}
 variable "ext_dashboard_cidr_block" {}
+variable "peering_connectivity_tester_ip" {}
+
+variable "service" {
+  default     = "dq-peering"
+  description = "As per naming standards in AWS-DQ-Network-Routing 0.5 document"
+}
+
+variable "environment" {
+  default     = "preprod"
+  description = "As per naming standards in AWS-DQ-Network-Routing 0.5 document"
+}
+
+variable "environment_group" {
+  default     = "dq-peering"
+  description = "As per naming standards in AWS-DQ-Network-Routing 0.5 document"
+}

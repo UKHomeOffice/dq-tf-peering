@@ -1,34 +1,27 @@
-variable instance_type {
-  default = "t2.nano"
-}
-
-data "aws_ami" "linux_connectivity_tester" {
-  most_recent = true
-
-  filter {
-    name = "name"
-
-    values = [
-      "connectivity-tester-linux*",
-    ]
-  }
-
-  owners = [
-    "093401982388",
-  ]
-}
-
-resource "aws_instance" "connectivity_tester" {
-  ami                    = "${data.aws_ami.linux_connectivity_tester.id}"
-  instance_type          = "${var.instance_type}"
-  subnet_id              = "${aws_subnet.connectivity_tester_subnet.id}"
-  vpc_security_group_ids = ["${aws_security_group.connectivity_tester.id}"]
+resource "aws_subnet" "connectivity_tester_subnet" {
+  vpc_id                  = "${aws_vpc.peeringvpc.id}"
+  cidr_block              = "${var.connectivity_tester_subnet_cidr_block}"
+  map_public_ip_on_launch = false
+  availability_zone       = "${var.az}"
 
   tags {
-    Name = "${local.name_prefix}ec2-linux"
+    Name = "${local.name_prefix}connectivity-tester-subnet"
   }
+}
 
-  user_data = "CHECK_self=127.0.0.1:8080 CHECK_google=google.com:80 CHECK_googletls=google.com:443 LISTEN_http=0.0.0.0:80"
+module "peering_connectivity_tester" {
+  source          = "github.com/ukhomeoffice/connectivity-tester-tf"
+  subnet_id       = "${aws_subnet.connectivity_tester_subnet.id}"
+  user_data       = "LISTEN_tcp=0.0.0.0:80"
+  security_groups = ["${aws_security_group.connectivity_tester.id}"]
+  private_ip      = "${var.peering_connectivity_tester_ip}"
+
+  tags = {
+    Name             = "ec2-${var.service}-connectivity-tester-${var.environment}"
+    Service          = "${var.service}"
+    Environment      = "${var.environment}"
+    EnvironmentGroup = "${var.environment_group}"
+  }
 }
 
 resource "aws_security_group" "connectivity_tester" {
