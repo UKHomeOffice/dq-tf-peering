@@ -20,7 +20,6 @@ resource "aws_route_table" "peering_route_table" {
   }
 }
 
-
 resource "aws_subnet" "haproxy_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
   cidr_block              = "${var.haproxy_subnet_cidr_block}"
