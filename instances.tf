@@ -37,19 +37,7 @@ resource "aws_security_group" "connectivity_tester" {
     protocol  = "-1"
 
     cidr_blocks = [
-      "${var.opssubnet_cidr_block}",
-      "${var.acpcicd_vpc_subnet_cidr_block}",
-      "${var.acpops_vpc_subnet_cidr_block}",
-      "${var.acpprod_vpc_subnet_cidr_block}",
-      "${var.acpvpn_vpc_subnet_cidr_block}",
-      "${var.data_ingest_cidr_block}",
-      "${var.data_pipe_apps_cidr_block}",
-      "${var.data_feeds_cidr_block}",
-      "${var.public_subnet_cidr_block}",
-      "${var.dgdb_apps_cidr_block}",
-      "${var.mdm_apps_cidr_block}",
-      "${var.int_dashboard_cidr_block}",
-      "${var.ext_dashboard_cidr_block}",
+      "${var.SGCIDRs}",
     ]
   }
 
