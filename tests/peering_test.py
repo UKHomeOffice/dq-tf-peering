@@ -14,6 +14,11 @@ class TestE2E(unittest.TestCase):
               skip_get_ec2_platforms = true
             }
 
+            variable "CIDRs" {
+              type = "string"
+              default = "1.1.1.0/24"
+           }
+
             module "peering" {
               source = "./mymodule"
 
@@ -21,22 +26,23 @@ class TestE2E(unittest.TestCase):
                 aws = "aws"
               }
 
+
               cidr_block                            = "1.1.0.0/16"
-              connectivity_tester_subnet_cidr_block = "1.1.1.0/24"
-              haproxy_subnet_cidr_block             = "1.1.1.0/24"
-              opssubnet_cidr_block                  = "1.1.1.0/24"
-              acpcicd_vpc_subnet_cidr_block         = "1.1.1.0/24"
-              acpops_vpc_subnet_cidr_block          = "1.1.1.0/24"
-              acpprod_vpc_subnet_cidr_block         = "1.1.1.0/24"
-              acpvpn_vpc_subnet_cidr_block          = "1.1.1.0/24"
-              data_ingest_cidr_block                = "1.1.1.0/24"
-              data_pipe_apps_cidr_block             = "1.1.1.0/24"
-              data_feeds_cidr_block                 = "1.1.1.0/24"
-              public_subnet_cidr_block              = "1.1.1.0/24"
-              dgdb_apps_cidr_block                  = "1.1.1.0/24"
-              mdm_apps_cidr_block                   = "1.1.1.0/24"
-              int_dashboard_cidr_block              = "1.1.1.0/24"
-              ext_dashboard_cidr_block              = "1.1.1.0/24"
+              connectivity_tester_subnet_cidr_block = "${var.CIDRs}"
+              haproxy_subnet_cidr_block             = "${var.CIDRs}"
+              opssubnet_cidr_block                  = "${var.CIDRs}"
+              acpcicd_vpc_subnet_cidr_block         = "${var.CIDRs}"
+              acpops_vpc_subnet_cidr_block          = "${var.CIDRs}"
+              acpprod_vpc_subnet_cidr_block         = "${var.CIDRs}"
+              acpvpn_vpc_subnet_cidr_block          = "${var.CIDRs}"
+              data_ingest_cidr_block                = "${var.CIDRs}"
+              data_pipe_apps_cidr_block             = "${var.CIDRs}"
+              data_feeds_cidr_block                 = "${var.CIDRs}"
+              public_subnet_cidr_block              = "${var.CIDRs}"
+              dgdb_apps_cidr_block                  = "${var.CIDRs}"
+              mdm_apps_cidr_block                   = "${var.CIDRs}"
+              int_dashboard_cidr_block              = "${var.CIDRs}"
+              ext_dashboard_cidr_block              = "${var.CIDRs}"
               peering_connectivity_tester_ip        = "1.1.1.1"
               az                                    = "eu-west-2a"
               name_prefix                           = "dq-"
