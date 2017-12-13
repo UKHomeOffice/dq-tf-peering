@@ -4,6 +4,24 @@ variable "haproxy_subnet_cidr_block" {}
 variable "az" {}
 variable "name_prefix" {}
 
+variable "vpc_peering_connection_ids" {
+  description = "Map of VPC peering IDs for the Peering route table."
+  type        = "map"
+
+  default = {
+    name = false
+  }
+}
+
+variable "route_table_cidr_blocks" {
+  description = "Map of CIDR blocks for the Peering route table."
+  type        = "map"
+
+  default = {
+    name = false
+  }
+}
+
 variable "SGCIDRs" {
   description = "Add subnet CIDRs for the Connectivity tester Security Group"
   type        = "list"
