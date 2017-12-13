@@ -35,7 +35,16 @@ class TestE2E(unittest.TestCase):
               peering_connectivity_tester_ip        = "1.1.1.1"
               az                                    = "eu-west-2a"
               name_prefix                           = "dq-"
+              vpc_peering_connection_ids            = {
+                name = "1234"
+                name2 = "1234"
+              }
+              route_table_cidr_blocks               = {
+                name = "1234"
+                name2 = "1234"
+              }
             }
+
         """
         self.result = Runner(self.snippet).result
 
