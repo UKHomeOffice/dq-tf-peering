@@ -31,17 +31,24 @@ class TestE2E(unittest.TestCase):
               cidr_block                            = "1.1.0.0/16"
               connectivity_tester_subnet_cidr_block = "1.1.0.0/24"
               haproxy_subnet_cidr_block             = "1.1.0.0/24"
+              public_subnet_cidr_block              = "1.1.0.0/24"
               SGCIDRs                               = "${var.SGCIDRs}"
               peering_connectivity_tester_ip        = "1.1.1.1"
               az                                    = "eu-west-2a"
               name_prefix                           = "dq-"
               vpc_peering_connection_ids            = {
-                name = "1234"
-                name2 = "1234"
+                peering_and_apps = "1234"
+                peering_and_ops = "1234"
+                peering_and_acpprod = "1234"
+                peering_and_acpops = "1234"
+                peering_and_acpcicd = "1234"
               }
               route_table_cidr_blocks               = {
-                name = "1234"
-                name2 = "1234"
+                ops_cidr = "1234"
+                apps_cidr = "1234"
+                acp_prod = "1234"
+                acp_ops = "1234"
+                acp_cicd = "1234"
               }
             }
 
