@@ -1,25 +1,19 @@
 variable "cidr_block" {}
 variable "connectivity_tester_subnet_cidr_block" {}
 variable "haproxy_subnet_cidr_block" {}
+variable "public_subnet_cidr_block" {}
+variable "peering_connectivity_tester_ip" {}
 variable "az" {}
 variable "name_prefix" {}
 
 variable "vpc_peering_connection_ids" {
   description = "Map of VPC peering IDs for the Peering route table."
   type        = "map"
-
-  default = {
-    name = false
-  }
 }
 
 variable "route_table_cidr_blocks" {
   description = "Map of CIDR blocks for the Peering route table."
   type        = "map"
-
-  default = {
-    name = false
-  }
 }
 
 variable "SGCIDRs" {
@@ -27,8 +21,6 @@ variable "SGCIDRs" {
   type        = "list"
   default     = []
 }
-
-variable "peering_connectivity_tester_ip" {}
 
 variable "service" {
   default     = "dq-peering"
