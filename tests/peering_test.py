@@ -36,6 +36,10 @@ class TestE2E(unittest.TestCase):
               peering_connectivity_tester_ip        = "1.1.1.1"
               az                                    = "eu-west-2a"
               name_prefix                           = "dq-"
+              prod_tester_ip                        = "10.5.1.10"
+              ops_tester_ip                         = "10.6.1.10"
+              cicd_tester_ip                        = "10.7.1.10"
+
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"
                 peering_and_ops = "1234"
@@ -51,7 +55,6 @@ class TestE2E(unittest.TestCase):
                 acp_cicd = "1234"
               }
             }
-
         """
         self.result = Runner(self.snippet).result
 

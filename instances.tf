@@ -1,7 +1,7 @@
 module "peering_connectivity_tester" {
   source          = "github.com/ukhomeoffice/connectivity-tester-tf"
   subnet_id       = "${aws_subnet.connectivity_tester_subnet.id}"
-  user_data       = "LISTEN_tcp=0.0.0.0:80"
+  user_data       = "LISTEN_tcp=0.0.0.0:80 CHECK_ACP_PROD=${var.prod_tester_ip}:${var.acp_port} CHECK_ACP_OPS=${var.ops_tester_ip}:${var.acp_port} CHECK_ACP_CICD=${var.cicd_tester_ip}:${var.acp_port}"
   security_groups = ["${aws_security_group.connectivity_tester.id}"]
   private_ip      = "${var.peering_connectivity_tester_ip}"
 
