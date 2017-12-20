@@ -36,3 +36,23 @@ variable "environment_group" {
   default     = "dq-peering"
   description = "As per naming standards in AWS-DQ-Network-Routing 0.5 document"
 }
+
+variable "acp_port" {
+  default     = "80"
+  description = "Listening port for ACP"
+}
+
+variable "prod_tester_ip" {
+  default     = "10.5.1.10"
+  description = "ACP private IP address"
+}
+
+variable "ops_tester_ip" {
+  default     = "10.6.1.10"
+  description = "ACP private IP address"
+}
+
+variable "cicd_tester_ip" {
+  default     = "10.7.1.10"
+  description = "ACP private IP address"
+}
