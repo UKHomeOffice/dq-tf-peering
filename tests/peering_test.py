@@ -39,6 +39,10 @@ class TestE2E(unittest.TestCase):
               prod_tester_ip                        = "10.5.1.10"
               ops_tester_ip                         = "10.6.1.10"
               cicd_tester_ip                        = "10.7.1.10"
+              ops_bastion_win_ip                    = "10.2.0.12"
+              ops_bastion_linux_ip                  = "10.2.0.11"
+              ops_ssh_port                          = "22"
+              ops_rdp_port                          = "3389"
 
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"

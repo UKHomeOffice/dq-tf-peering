@@ -56,3 +56,23 @@ variable "cicd_tester_ip" {
   default     = "10.7.1.10"
   description = "ACP private IP address"
 }
+
+variable "ops_bastion_win_ip" {
+  default     = "10.2.0.12"
+  description = "Ops Windows Bastion IP address"
+}
+
+variable "ops_bastion_linux_ip" {
+  default     = "10.2.0.11"
+  description = "Ops Linux Bastion IP address"
+}
+
+variable "ops_ssh_port" {
+  default     = "22"
+  description = "SSH port for Ops traffic"
+}
+
+variable "ops_rdp_port" {
+  default     = "3389"
+  description = "RDP port for Ops traffic"
+}
