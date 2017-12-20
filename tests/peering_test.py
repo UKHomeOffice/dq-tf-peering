@@ -43,6 +43,19 @@ class TestE2E(unittest.TestCase):
               ops_bastion_linux_ip                  = "10.2.0.11"
               ops_ssh_port                          = "22"
               ops_rdp_port                          = "3389"
+              BDM_HTTPS_TCP                         = 443
+              BDM_SSH_TCP                           = 22
+              BDM_CUSTOM_TCP                        = 5432
+              INT_EXT_tableau_RDP_TCP               = 3389
+              INT_EXT_tableau_HTTPS_TCP             = 443
+              data_pipeline_RDP_TCP                 = 3389
+              data_pipeline_custom_TCP              = 1433
+              data_ingest_RDP_TCP                   = 3389
+              data_ingest_custom_TCP                = 5432
+              external_feed_RDP_TCP                 = 3389
+              external_feed_custom_TCP              = 5432
+              greenplum_ip                          = "10.1.2.11"
+              BDM_RDS_db_instance_ip                = "10.1.2.11"
 
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"

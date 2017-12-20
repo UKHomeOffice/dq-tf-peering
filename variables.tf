@@ -76,3 +76,118 @@ variable "ops_rdp_port" {
   default     = "3389"
   description = "RDP port for Ops traffic"
 }
+
+variable "BDM_HTTPS_TCP" {
+  default     = 443
+  description = "HTTPS TCP connectivty port for business data manager app"
+}
+
+variable "BDM_SSH_TCP" {
+  default     = 22
+  description = "SSH TCP connectivty port for business data manager app"
+}
+
+variable "BDM_CUSTOM_TCP" {
+  default     = 5432
+  description = "BDM Custom TCP connectivty port for business data manager app"
+}
+
+variable "BDM_instance_ip" {
+  default     = "10.1.10.11"
+  description = "Mock IP address of EC2 instance for BDM app"
+}
+
+variable "BDM_RDS_db_instance_ip" {
+  default     = "10.1.2.11"
+  description = "IP address of EC2 db instance for BDM app"
+}
+
+variable "INT_EXT_tableau_RDP_TCP" {
+  default     = 3389
+  description = "RDP TCP connectivty port for external and internal tableau apps"
+}
+
+variable "internal_dashboard_instance_ip" {
+  default     = "10.1.12.11"
+  description = "Mock IP address of EC2 instance for internal tableau apps"
+}
+
+variable "external_dashboard_instance_ip" {
+  default     = "10.1.14.11"
+  description = "Mock IP address of EC2 instance for external tableau apps"
+}
+
+variable "INT_EXT_tableau_HTTPS_TCP" {
+  default     = 443
+  description = "HTTPS TCP connectivty port for external and internal tableau apps"
+}
+
+variable "data_pipeline_RDP_TCP" {
+  default     = 3389
+  description = "RDP TCP connectivty port for data pipeline app"
+}
+
+variable "data_pipeline_custom_TCP" {
+  default     = 1433
+  description = "Custom TCP connectivty port for data pipeline app"
+}
+
+variable "data_pipeline_postgres_ip" {
+  default     = "10.1.8.11"
+  description = "Mock EC2 database instance for data pipeline app"
+}
+
+variable "data_pipeline_web_ip" {
+  default     = "10.1.8.21"
+  description = "Mock EC2 web instance for data pipeline app"
+}
+
+variable "data_ingest_RDP_TCP" {
+  default     = 3389
+  description = "RDP TCP connectivty port for data ingest app"
+}
+
+variable "data_ingest_custom_TCP" {
+  default     = 5432
+  description = "Custom TCP connectivty port for data ingest app"
+}
+
+variable "data_ingest_web_ip" {
+  default     = "10.1.6.21"
+  description = "Mock EC2 web instance for data ingest app"
+}
+
+variable "data_ingest_db_ip" {
+  default     = "10.1.6.11"
+  description = "Mock EC2 database instance for data ingest app"
+}
+
+variable "external_feed_RDP_TCP" {
+  default     = 3389
+  description = "RDP TCP connectivty port for external feed app"
+}
+
+variable "external_feed_custom_TCP" {
+  default     = 5432
+  description = "Custom TCP connectivty port for external feed app"
+}
+
+variable "data_feeds_postgres_ip" {
+  default     = "10.1.4.11"
+  description = "Mock IP address of database EC2 instance for external data feeds app"
+}
+
+variable "data_feeds_web_ip" {
+  default     = "10.1.4.21"
+  description = "Mock IP address of web EC2 instance for external data feeds app"
+}
+
+variable "greenplum_SSH_TCP" {
+  default     = 22
+  description = "SSH TCP connectivty port for greenplum database"
+}
+
+variable "greenplum_ip" {
+  default     = "10.1.2.11"
+  description = "IP address for Greenplum"
+}
