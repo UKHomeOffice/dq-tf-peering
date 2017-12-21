@@ -13,17 +13,6 @@ resource "aws_vpc" "peeringvpc" {
   }
 }
 
-resource "aws_subnet" "haproxy_subnet" {
-  vpc_id                  = "${aws_vpc.peeringvpc.id}"
-  cidr_block              = "${var.haproxy_subnet_cidr_block}"
-  map_public_ip_on_launch = false
-  availability_zone       = "${var.az}"
-
-  tags {
-    Name = "${local.name_prefix}haproxy-subnet"
-  }
-}
-
 resource "aws_subnet" "connectivity_tester_subnet" {
   vpc_id                  = "${aws_vpc.peeringvpc.id}"
   cidr_block              = "${var.connectivity_tester_subnet_cidr_block}"
@@ -116,11 +105,6 @@ resource "aws_route_table" "peering_public_table" {
 
 resource "aws_route_table_association" "connectivity_tester_subnet" {
   subnet_id      = "${aws_subnet.connectivity_tester_subnet.id}"
-  route_table_id = "${aws_route_table.peering_route_table.id}"
-}
-
-resource "aws_route_table_association" "haproxy_subnet" {
-  subnet_id      = "${aws_subnet.haproxy_subnet.id}"
   route_table_id = "${aws_route_table.peering_route_table.id}"
 }
 
