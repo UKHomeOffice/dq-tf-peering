@@ -6,11 +6,11 @@ output "peeringvpc_cidr_block" {
   value = "${var.cidr_block}"
 }
 
-output "haproxy_config_bucket_name" {
+output "haproxy_config_bucket_arn" {
   value = "${aws_s3_bucket.haproxy_config_bucket.arn}"
 }
 
-output "haproxy_log_bucket_name" {
+output "haproxy_log_bucket_arn" {
   value = "${aws_s3_bucket.haproxy_log_bucket.arn}"
 }
 
