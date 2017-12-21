@@ -17,3 +17,7 @@ output "haproxy_log_bucket_name" {
 output "peering_route_table_id" {
   value = "${aws_route_table.peering_route_table.id}"
 }
+
+output "haproxy_config_bucket_name" {
+  value = "${var.s3_bucket_name["config"]}"
+}
