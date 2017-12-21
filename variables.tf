@@ -5,20 +5,8 @@ variable "peering_connectivity_tester_ip" {}
 variable "az" {}
 variable "name_prefix" {}
 
-variable "s3_bucket_name" {
-  type = "map"
-}
-
-variable "s3_bucket_acl" {
-  type = "map"
-}
-
 variable "region" {
   default = "eu-west-2"
-}
-
-variable "s3_bucket_visibility" {
-  default = "private"
 }
 
 variable "vpc_peering_connection_ids" {

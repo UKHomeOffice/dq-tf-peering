@@ -56,16 +56,6 @@ class TestE2E(unittest.TestCase):
               greenplum_ip                          = "10.1.2.11"
               BDM_RDS_db_instance_ip                = "10.1.2.11"
 
-              s3_bucket_name = {
-                config = "abcd"
-                log = "abcd"
-              }
-
-              s3_bucket_acl = {
-                config = "private"
-                log = "log-delivery-write"
-              }
-
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"
                 peering_and_ops = "1234"
@@ -104,12 +94,6 @@ class TestE2E(unittest.TestCase):
 
     def test_name_connectivity_tester(self):
         self.assertEqual(self.result['peering']["aws_security_group.connectivity_tester"]["tags.Name"], "dq-peering-connectivity-sg")
-
-    def test_name_prefix_bucketname(self):
-        self.assertEqual(self.result['peering']["aws_s3_bucket.haproxy_config_bucket"]["tags.Name"], "s3-dq-peering-haproxy-config-bucket-preprod")
-
-    def test_name_prefix_log_bucket(self):
-        self.assertEqual(self.result['peering']["aws_s3_bucket.haproxy_log_bucket"]["tags.Name"], "s3-dq-peering-haproxy-log-bucket-preprod")
 
 
 if __name__ == '__main__':
