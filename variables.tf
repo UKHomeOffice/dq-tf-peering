@@ -1,7 +1,12 @@
 variable "cidr_block" {}
 variable "connectivity_tester_subnet_cidr_block" {}
-variable "public_subnet_cidr_block" {}
 variable "peering_connectivity_tester_ip" {}
+variable "public_subnet_cidr_block" {}
+
+variable "haproxy_subnet_cidr_block" {
+  default = "10.3.0.0/24"
+}
+
 variable "az" {}
 variable "name_prefix" {}
 
