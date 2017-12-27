@@ -2,13 +2,19 @@ variable "cidr_block" {}
 variable "connectivity_tester_subnet_cidr_block" {}
 variable "peering_connectivity_tester_ip" {}
 variable "public_subnet_cidr_block" {}
+variable "s3_bucket_name" {}
+variable "s3_bucket_acl" {}
+variable "log_archive_s3_bucket" {}
+variable "az" {}
+variable "name_prefix" {}
 
 variable "haproxy_subnet_cidr_block" {
   default = "10.3.0.0/24"
 }
 
-variable "az" {}
-variable "name_prefix" {}
+variable "haproxy_private_ip" {
+  default = "10.3.0.10"
+}
 
 variable "region" {
   default = "eu-west-2"
