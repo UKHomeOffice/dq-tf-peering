@@ -1,7 +1,7 @@
 provider "aws" {}
 
 locals {
-  name_prefix = "${var.name_prefix}peering-"
+  naming_suffix = "peering-${var.naming_suffix}"
 }
 
 resource "aws_vpc" "peeringvpc" {
@@ -9,7 +9,7 @@ resource "aws_vpc" "peeringvpc" {
   enable_dns_hostnames = true
 
   tags {
-    Name = "${local.name_prefix}vpc"
+    Name = "vpc-${local.naming_suffix}"
   }
 }
 
@@ -20,7 +20,7 @@ resource "aws_subnet" "connectivity_tester_subnet" {
   availability_zone       = "${var.az}"
 
   tags {
-    Name = "${local.name_prefix}connectivity-tester-subnet"
+    Name = "connectivity-tester-subnet-${local.naming_suffix}"
   }
 }
 
@@ -31,7 +31,7 @@ resource "aws_subnet" "peering_public_subnet" {
   availability_zone       = "${var.az}"
 
   tags {
-    Name = "${local.name_prefix}public-subnet"
+    Name = "public-subnet-${local.naming_suffix}"
   }
 }
 
@@ -39,7 +39,7 @@ resource "aws_internet_gateway" "peering_igw" {
   vpc_id = "${aws_vpc.peeringvpc.id}"
 
   tags {
-    Name = "${local.name_prefix}public-igw"
+    Name = "public-igw-${local.naming_suffix}"
   }
 }
 
@@ -86,7 +86,7 @@ resource "aws_route_table" "peering_route_table" {
   }
 
   tags {
-    Name = "${local.name_prefix}route-table"
+    Name = "route-table-${local.naming_suffix}"
   }
 }
 
@@ -99,7 +99,7 @@ resource "aws_route_table" "peering_public_table" {
   }
 
   tags {
-    Name = "${local.name_prefix}public-route-table"
+    Name = "public-route-table-${local.naming_suffix}"
   }
 }
 
