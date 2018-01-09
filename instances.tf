@@ -7,10 +7,7 @@ module "peering_connectivity_tester" {
   private_ip      = "${var.peering_connectivity_tester_ip}"
 
   tags = {
-    Name             = "ec2-${var.service}-connectivity-tester-${var.environment}"
-    Service          = "${var.service}"
-    Environment      = "${var.environment}"
-    EnvironmentGroup = "${var.environment_group}"
+    Name = "connectivity-tester-${local.naming_suffix}"
   }
 }
 
@@ -18,7 +15,7 @@ resource "aws_security_group" "connectivity_tester" {
   vpc_id = "${aws_vpc.peeringvpc.id}"
 
   tags {
-    Name = "${local.name_prefix}connectivity-sg"
+    Name = "sg-connectivity-tester-${local.naming_suffix}"
   }
 
   ingress {

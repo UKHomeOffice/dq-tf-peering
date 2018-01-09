@@ -38,7 +38,6 @@ class TestE2E(unittest.TestCase):
               s3_bucket_acl                         = "private"
               log_archive_s3_bucket                 = "abcd"
               az                                    = "eu-west-2a"
-              name_prefix                           = "dq-"
               prod_tester_ip                        = "10.5.1.10"
               ops_tester_ip                         = "10.6.1.10"
               cicd_tester_ip                        = "10.7.1.10"
@@ -59,6 +58,7 @@ class TestE2E(unittest.TestCase):
               external_feed_custom_TCP              = 5432
               greenplum_ip                          = "10.1.2.11"
               BDM_RDS_db_instance_ip                = "10.1.2.11"
+              naming_suffix                         = "preprod-dq"
 
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"
@@ -90,14 +90,14 @@ class TestE2E(unittest.TestCase):
     def test_az_connectivity_tester(self):
         self.assertEqual(self.result['peering']["aws_subnet.connectivity_tester_subnet"]["availability_zone"], "eu-west-2a")
 
-    def test_name_prefix_peeringvpc(self):
-        self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["tags.Name"], "dq-peering-vpc")
+    def test_name_suffix_peeringvpc(self):
+        self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["tags.Name"], "vpc-peering-preprod-dq")
 
     def test_name_peering_route_table(self):
-        self.assertEqual(self.result['peering']["aws_route_table.peering_route_table"]["tags.Name"], "dq-peering-route-table")
+        self.assertEqual(self.result['peering']["aws_route_table.peering_route_table"]["tags.Name"], "route-table-peering-preprod-dq")
 
     def test_name_connectivity_tester(self):
-        self.assertEqual(self.result['peering']["aws_security_group.connectivity_tester"]["tags.Name"], "dq-peering-connectivity-sg")
+        self.assertEqual(self.result['peering']["aws_security_group.connectivity_tester"]["tags.Name"], "sg-connectivity-tester-peering-preprod-dq")
 
 
 if __name__ == '__main__':
