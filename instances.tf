@@ -46,4 +46,5 @@ module "haproxy_instance" {
   s3_bucket_acl             = "${var.s3_bucket_acl}"
   log_archive_s3_bucket     = "${var.log_archive_s3_bucket}"
   SGCIDRs                   = ["${var.SGCIDRs}"]
+  naming_suffix             = "${local.naming_suffix}"
 }
