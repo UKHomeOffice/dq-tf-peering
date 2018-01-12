@@ -80,31 +80,6 @@ variable "ops_rdp_port" {
   description = "RDP port for Ops traffic"
 }
 
-variable "BDM_HTTPS_TCP" {
-  default     = 443
-  description = "HTTPS TCP connectivty port for business data manager app"
-}
-
-variable "BDM_SSH_TCP" {
-  default     = 22
-  description = "SSH TCP connectivty port for business data manager app"
-}
-
-variable "BDM_CUSTOM_TCP" {
-  default     = 5432
-  description = "BDM Custom TCP connectivty port for business data manager app"
-}
-
-variable "BDM_instance_ip" {
-  default     = "10.1.10.11"
-  description = "Mock IP address of EC2 instance for BDM app"
-}
-
-variable "BDM_RDS_db_instance_ip" {
-  default     = "10.1.2.11"
-  description = "IP address of EC2 db instance for BDM app"
-}
-
 variable "INT_EXT_tableau_RDP_TCP" {
   default     = 3389
   description = "RDP TCP connectivty port for external and internal tableau apps"
