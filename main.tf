@@ -71,16 +71,6 @@ resource "aws_route_table" "peering_route_table" {
   }
 
   route {
-    cidr_block                = "${var.route_table_cidr_blocks["acp_ops"]}"
-    vpc_peering_connection_id = "${var.vpc_peering_connection_ids["peering_and_acpops"]}"
-  }
-
-  route {
-    cidr_block                = "${var.route_table_cidr_blocks["acp_cicd"]}"
-    vpc_peering_connection_id = "${var.vpc_peering_connection_ids["peering_and_acpcicd"]}"
-  }
-
-  route {
     cidr_block     = "0.0.0.0/0"
     nat_gateway_id = "${aws_nat_gateway.peering_nat_gw.id}"
   }
