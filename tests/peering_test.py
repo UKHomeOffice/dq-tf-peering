@@ -92,9 +92,6 @@ class TestE2E(unittest.TestCase):
     def test_name_peering_route_table(self):
         self.assertEqual(self.result['peering']["aws_route_table.peering_route_table"]["tags.Name"], "route-table-peering-preprod-dq")
 
-    def test_name_connectivity_tester(self):
-        self.assertEqual(self.result['peering']["aws_security_group.connectivity_tester"]["tags.Name"], "sg-connectivity-tester-peering-preprod-dq")
-
 
 if __name__ == '__main__':
     unittest.main()
