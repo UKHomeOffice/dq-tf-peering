@@ -38,22 +38,6 @@ class TestE2E(unittest.TestCase):
               s3_bucket_acl                         = "private"
               log_archive_s3_bucket                 = "abcd"
               az                                    = "eu-west-2a"
-              prod_tester_ip                        = "10.5.1.10"
-              ops_tester_ip                         = "10.6.1.10"
-              cicd_tester_ip                        = "10.7.1.10"
-              ops_bastion_win_ip                    = "10.2.0.12"
-              ops_bastion_linux_ip                  = "10.2.0.11"
-              ops_ssh_port                          = "22"
-              ops_rdp_port                          = "3389"
-              INT_EXT_tableau_RDP_TCP               = 3389
-              INT_EXT_tableau_HTTPS_TCP             = 443
-              data_pipeline_RDP_TCP                 = 3389
-              data_pipeline_custom_TCP              = 1433
-              data_ingest_RDP_TCP                   = 3389
-              data_ingest_custom_TCP                = 5432
-              external_feed_RDP_TCP                 = 3389
-              external_feed_custom_TCP              = 5432
-              greenplum_ip                          = "10.1.2.11"
               naming_suffix                         = "preprod-dq"
 
               vpc_peering_connection_ids            = {
