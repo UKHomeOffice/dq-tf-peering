@@ -1,6 +1,4 @@
 variable "cidr_block" {}
-variable "connectivity_tester_subnet_cidr_block" {}
-variable "peering_connectivity_tester_ip" {}
 variable "public_subnet_cidr_block" {}
 variable "s3_bucket_name" {}
 variable "s3_bucket_acl" {}
