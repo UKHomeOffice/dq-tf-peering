@@ -29,10 +29,8 @@ class TestE2E(unittest.TestCase):
 
 
               cidr_block                            = "1.1.0.0/16"
-              connectivity_tester_subnet_cidr_block = "1.1.0.0/24"
               public_subnet_cidr_block              = "1.1.0.0/24"
               SGCIDRs                               = "${var.SGCIDRs}"
-              peering_connectivity_tester_ip        = "1.1.1.1"
               haproxy_private_ip                    = "1.1.1.1"
               s3_bucket_name                        = "abcd"
               s3_bucket_acl                         = "private"
@@ -63,12 +61,6 @@ class TestE2E(unittest.TestCase):
 
     def test_vpc_cidr_block(self):
         self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["cidr_block"], "1.1.0.0/16")
-
-    def test_peering_tester_cidr_block(self):
-        self.assertEqual(self.result['peering']["aws_subnet.connectivity_tester_subnet"]["cidr_block"], "1.1.0.0/24")
-
-    def test_az_connectivity_tester(self):
-        self.assertEqual(self.result['peering']["aws_subnet.connectivity_tester_subnet"]["availability_zone"], "eu-west-2a")
 
     def test_name_suffix_peeringvpc(self):
         self.assertEqual(self.result['peering']["aws_vpc.peeringvpc"]["tags.Name"], "vpc-peering-preprod-dq")
