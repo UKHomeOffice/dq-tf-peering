@@ -13,3 +13,7 @@ output "peering_route_table_id" {
 output "haproxy_subnet_cidr_block" {
   value = "${var.haproxy_subnet_cidr_block}"
 }
+
+output "iam_roles" {
+  value = "${concat(module.haproxy_instance.iam_roles)}"
+}
