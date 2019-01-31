@@ -32,6 +32,7 @@ class TestE2E(unittest.TestCase):
               public_subnet_cidr_block              = "1.1.0.0/24"
               SGCIDRs                               = "${var.SGCIDRs}"
               haproxy_private_ip                    = "1.1.1.1"
+              haproxy_private_ip2                   = "1.1.1.2"
               s3_bucket_name                        = "abcd"
               s3_bucket_acl                         = "private"
               log_archive_s3_bucket                 = "abcd"
