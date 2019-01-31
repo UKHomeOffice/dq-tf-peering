@@ -23,5 +23,5 @@ output "haproxy_private_ip" {
 }
 
 output "haproxy_private_ip2" {
-  value = "${haproxy_private_ip2}"
+  value = "${var.haproxy_private_ip2}"
 }
