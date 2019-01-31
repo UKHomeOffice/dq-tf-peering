@@ -17,7 +17,3 @@ output "haproxy_subnet_cidr_block" {
 output "iam_roles" {
   value = "${concat(module.haproxy_instance.iam_roles)}"
 }
-
-output "haproxy_private_ip2" {
-  value = "${module.haproxy_instance.haproxy_private_ip2}"
-}
