@@ -15,7 +15,11 @@ variable "haproxy_subnet_cidr_block" {
 }
 
 variable "haproxy_private_ip" {
-  default = "10.3.0.10"
+  default = "10.3.0.11"
+}
+
+variable "haproxy_private_ip2" {
+  default = "10.3.0.12"
 }
 
 variable "region" {
