@@ -17,3 +17,11 @@ output "haproxy_subnet_cidr_block" {
 output "iam_roles" {
   value = "${concat(module.haproxy_instance.iam_roles)}"
 }
+
+output "haproxy_private_ip" {
+  value = "${var.haproxy_private_ip}"
+}
+
+output "haproxy_private_ip2" {
+  value = "${var.haproxy_private_ip2}"
+}
