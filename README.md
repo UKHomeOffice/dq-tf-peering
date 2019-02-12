@@ -1,7 +1,5 @@
 # DQ Terraform Peering module
 
-[![Build Status](https://drone.digital.homeoffice.gov.uk/api/badges/UKHomeOffice/dq-tf-peering/status.svg)](https://drone.digital.homeoffice.gov.uk/UKHomeOffice/dq-tf-peering)
-
 This module describes required VPC components for deploying our modules into the DQ AWS environments.
 
 It can be run against both Production and non-Production environments by setting a variable at runtime to switch the provider used.
