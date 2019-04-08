@@ -31,5 +31,5 @@ output "haproxy_private_ip3" {
 }
 
 output "haproxy_config_bucket" {
-  value = "${module.harproxy_instance.haproxy_config_bucket}"
+  value = "${module.haproxy_instance.haproxy_config_bucket}"
 }
