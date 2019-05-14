@@ -5,7 +5,6 @@ module "haproxy_instance" {
   haproxy_subnet_cidr_block = "${var.haproxy_subnet_cidr_block}"
   haproxy_private_ip        = "${var.haproxy_private_ip}"
   haproxy_private_ip2       = "${var.haproxy_private_ip2}"
-  haproxy_private_ip3       = "${var.haproxy_private_ip3}"
   s3_bucket_name            = "${var.s3_bucket_name}"
   s3_bucket_acl             = "${var.s3_bucket_acl}"
   log_archive_s3_bucket     = "${var.log_archive_s3_bucket}"

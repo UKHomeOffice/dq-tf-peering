@@ -22,10 +22,6 @@ variable "haproxy_private_ip2" {
   default = "10.3.0.12"
 }
 
-variable "haproxy_private_ip3" {
-  default = "10.3.0.13"
-}
-
 variable "region" {
   default = "eu-west-2"
 }
