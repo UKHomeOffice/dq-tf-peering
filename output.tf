@@ -26,10 +26,6 @@ output "haproxy_private_ip2" {
   value = "${var.haproxy_private_ip2}"
 }
 
-output "haproxy_private_ip3" {
-  value = "${var.haproxy_private_ip3}"
-}
-
 output "haproxy_config_bucket" {
   value = "${module.haproxy_instance.haproxy_config_bucket}"
 }
