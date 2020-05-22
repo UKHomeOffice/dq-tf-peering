@@ -1,9 +1,20 @@
-variable "cidr_block" {}
-variable "public_subnet_cidr_block" {}
-variable "s3_bucket_name" {}
-variable "s3_bucket_acl" {}
-variable "log_archive_s3_bucket" {}
-variable "az" {}
+variable "cidr_block" {
+}
+
+variable "public_subnet_cidr_block" {
+}
+
+variable "s3_bucket_name" {
+}
+
+variable "s3_bucket_acl" {
+}
+
+variable "log_archive_s3_bucket" {
+}
+
+variable "az" {
+}
 
 variable "naming_suffix" {
   default     = false
@@ -28,16 +39,17 @@ variable "region" {
 
 variable "vpc_peering_connection_ids" {
   description = "Map of VPC peering IDs for the Peering route table."
-  type        = "map"
+  type        = map(string)
 }
 
 variable "route_table_cidr_blocks" {
   description = "Map of CIDR blocks for the Peering route table."
-  type        = "map"
+  type        = map(string)
 }
 
 variable "SGCIDRs" {
   description = "Add subnet CIDRs for the Connectivity tester Security Group"
-  type        = "list"
+  type        = list(string)
   default     = []
 }
+
