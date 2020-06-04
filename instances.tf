@@ -1,5 +1,5 @@
 module "haproxy_instance" {
-  source                    = "git::https://github.com/ukhomeoffice/dq-tf-peering-haproxy.git?ref=TF12-upgrade"
+  source                    = "github.com/UKHomeOffice/dq-tf-peering-haproxy"
   peeringvpc_id             = aws_vpc.peeringvpc.id
   route_table_id            = aws_route_table.peering_route_table.id
   haproxy_subnet_cidr_block = var.haproxy_subnet_cidr_block
