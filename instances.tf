@@ -10,4 +10,5 @@ module "haproxy_instance" {
   log_archive_s3_bucket     = var.log_archive_s3_bucket
   SGCIDRs                   = var.SGCIDRs
   naming_suffix             = local.naming_suffix
+  namespace                 = var.namespace
 }
