@@ -38,6 +38,7 @@ class TestE2E(unittest.TestCase):
               log_archive_s3_bucket                 = "abcd"
               az                                    = "eu-west-2a"
               naming_suffix                         = "preprod-dq"
+              namespace                             = "notprod"
 
               vpc_peering_connection_ids            = {
                 peering_and_apps = "1234"
