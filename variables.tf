@@ -16,6 +16,9 @@ variable "log_archive_s3_bucket" {
 variable "az" {
 }
 
+variable "namespace" {
+}
+
 variable "naming_suffix" {
   default     = false
   description = "Naming suffix for tags, value passed from dq-tf-apps"
@@ -52,4 +55,3 @@ variable "SGCIDRs" {
   type        = list(string)
   default     = []
 }
-
