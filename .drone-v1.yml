@@ -1,6 +1,6 @@
----
+
 kind: pipeline
-name: default
+name: dq-tf-peering
 type: kubernetes
 
 platform:
