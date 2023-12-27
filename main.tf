@@ -1,6 +1,3 @@
-provider "aws" {
-}
-
 locals {
   naming_suffix = "peering-${var.naming_suffix}"
 }
