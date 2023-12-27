@@ -55,3 +55,9 @@ variable "SGCIDRs" {
   type        = list(string)
   default     = []
 }
+
+variable "SSH_SGCIDRs" {
+  description = "Add other subnet CIDRs for the Connectivity tester Security Group"
+  type        = list(string)
+  default     = []
+}

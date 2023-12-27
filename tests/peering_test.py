@@ -18,6 +18,11 @@ class TestE2E(unittest.TestCase):
               type = list(string)
               default = ["1.1.0.0/24", "1.1.0.0/24", "1.1.0.0/24", "1.1.0.0/24"]
             }
+        
+            variable "SSH_SGCIDRs" {
+              type = list(string)
+              default = ["1.2.0.0/24", "1.2.0.0/24", "1.2.0.0/24", "1.2.0.0/24"]
+            }
 
 
             module "peering" {
@@ -31,6 +36,7 @@ class TestE2E(unittest.TestCase):
               cidr_block                            = "1.1.0.0/16"
               public_subnet_cidr_block              = "1.1.0.0/24"
               SGCIDRs                               = "${var.SGCIDRs}"
+              SSH_SGCIDRs                           = "${var.SSH_SGCIDRs}"
               haproxy_private_ip                    = "1.1.1.1"
               haproxy_private_ip2                   = "1.1.1.2"
               s3_bucket_name                        = "abcd"
