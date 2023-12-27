@@ -34,7 +34,7 @@ resource "aws_internet_gateway" "peering_igw" {
 }
 
 resource "aws_eip" "peering_eip" {
-  vpc = true
+  domain = "vpc"
 }
 
 resource "aws_nat_gateway" "peering_nat_gw" {
