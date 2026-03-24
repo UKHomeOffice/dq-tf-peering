@@ -89,6 +89,12 @@ resource "aws_default_security_group" "default" {
   vpc_id = aws_vpc.peeringvpc.id
 
   egress = []
+  lifecycle {
+    prevent_destroy = true
+    ignore_changes = [
+      egress,
+    ]
+  }
   #egress {
   #  from_port   = 0
   #  to_port     = 0
