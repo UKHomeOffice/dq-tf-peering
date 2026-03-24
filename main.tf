@@ -88,11 +88,12 @@ resource "aws_route_table_association" "peering_public_subnet" {
 resource "aws_default_security_group" "default" {
   vpc_id = aws_vpc.peeringvpc.id
 
-  egress {
-    from_port   = 0
-    to_port     = 0
-    protocol    = "-1"
-    cidr_blocks = ["0.0.0.0/0"]
-  }
+  egress = []
+  #egress {
+  #  from_port   = 0
+  #  to_port     = 0
+  #  protocol    = "-1"
+  #  cidr_blocks = ["0.0.0.0/0"]
+  #}
 }
 
